@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/iitu.jfif" %}" alt="Simple blog" />
+    <h2>qazaqyanke and bratrum</h2>
+  </header>
+  <p>Just simple coding project</p>
+</section>
+
+<section id="latest-posts">
+  <h2>Latest Posts</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>About section</h2>
+  <p>
+    Lorem ipsum dolor sit amet
+  </p>
+</section>
+{% endblock %}
